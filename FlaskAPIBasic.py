@@ -92,9 +92,4 @@ api.add_resource(APISampleList, '/listitems')
 if __name__ == '__main__':
     app.run(debug=True)
 
-# --- Sample Commands --- #
-# put
-# get
-# delete
-#
 

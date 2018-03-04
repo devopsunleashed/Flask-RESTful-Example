@@ -7,7 +7,7 @@ api = Api(app)
 auth = HTTPBasicAuth()
 
 
-# Obviously the login\pw are for testing.... :)
+# Callback function to get password
 @auth.get_password
 def get_password(username):
     if username == 'devopsunleasheduser':
@@ -15,13 +15,14 @@ def get_password(username):
     return None
 
 
+# Callback to send an authentication error back to the client
 @auth.error_handler
 def unauthorized():
     # return 403 instead of 401 to prevent browsers from displaying the default
     # auth dialog
     return make_response(jsonify({'message': 'Unauthorized access'}), 403)
 
-# Sample lunch menu data for testing
+# Sample data for testing
 SampleList = {
     '1': {'task': 'Entry 1'}
 }
